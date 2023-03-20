@@ -1,7 +1,6 @@
 # jpl-elf4j
 
-An adapter to use a [native ELF4J](https://github.com/elf4j/elf4j-impl-core) implementation as the logging engine for
-the Java 9 Platform Logging (System.Logger) API
+An adapter to use a [native ELF4J](https://github.com/elf4j/elf4j-impl-core) implementation as the runtime log engine for the Java 9 Platform Logging (System.Logger) API
 
 ## User Story
 
@@ -15,7 +14,7 @@ Java 9 or better
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.elf4j/jpl-elf4j.svg?label=Maven%20Central)](https://central.sonatype.com/search?smo=true&q=pkg%253Amaven%252Fio.github.elf4j%252Fjpl-elf4j)
 
-Install as a runtime-scope dependency e.g. with Maven:
+Code against the Java 9 System.Logger API. Install this as a runtime-scope dependency e.g. with Maven:
 
 ```html
 ...
