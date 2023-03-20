@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
  */
 @Value
 public class Elf4jLogger implements System.Logger {
+    private static final Class<?> SERVICE_INTERFACE_CLASS = System.Logger.class;
     String name;
     NativeLogger nativeLogger;
 
@@ -30,7 +31,7 @@ public class Elf4jLogger implements System.Logger {
             case OFF:
                 return elf4j.Level.OFF;
             default:
-                throw new IllegalArgumentException("Unexpected Java 9 Platform level: " + level);
+                throw new UnsupportedOperationException("Unexpected Java 9 Platform level: " + level);
         }
     }
 
@@ -51,7 +52,7 @@ public class Elf4jLogger implements System.Logger {
         }
         NativeLogger atLevel = this.nativeLogger.atLevel(translate(level));
         atLevel.getLogService()
-                .log(atLevel, System.Logger.class, thrown, bundle == null ? msg : bundle.getString(msg), null);
+                .log(atLevel, SERVICE_INTERFACE_CLASS, thrown, bundle == null ? msg : bundle.getString(msg), null);
     }
 
     @Override
@@ -63,6 +64,6 @@ public class Elf4jLogger implements System.Logger {
         MessageFormat bundledMessageFormat = bundle == null ? new MessageFormat(bundledFormat) :
                 new MessageFormat(bundledFormat, bundle.getLocale());
         NativeLogger atLevel = this.nativeLogger.atLevel(translate(level));
-        atLevel.getLogService().log(atLevel, System.Logger.class, null, bundledMessageFormat.format(params), null);
+        atLevel.getLogService().log(atLevel, SERVICE_INTERFACE_CLASS, null, bundledMessageFormat.format(params), null);
     }
 }
