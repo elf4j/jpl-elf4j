@@ -1,6 +1,6 @@
 # jpl-elf4j
 
-ELF4J logging engine provider of the Java 9 platform logging (System.Logger) API
+An adapter to use [ELF4J native](https://github.com/elf4j/elf4j-impl-core) implementation as the logging engine for the Java 9 platform logging (System.Logger) API
 
 ## User Story
 
