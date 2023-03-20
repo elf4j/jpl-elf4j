@@ -6,6 +6,9 @@ import lombok.Value;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 
+/**
+ *
+ */
 @Value
 public class Elf4jLogger implements System.Logger {
     String name;

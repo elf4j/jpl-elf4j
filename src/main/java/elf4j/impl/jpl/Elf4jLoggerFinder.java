@@ -5,7 +5,11 @@ import elf4j.impl.core.NativeLoggerFactory;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *
+ */
 public class Elf4jLoggerFinder extends System.LoggerFinder {
+    private static final Class<System> SERVICE_ACCESS_CLASS = System.class;
     private final NativeLoggerFactory nativeLoggerFactory;
     private final Map<String, Elf4jLogger> elf4jLoggers = new HashMap<>();
 
@@ -13,7 +17,7 @@ public class Elf4jLoggerFinder extends System.LoggerFinder {
      * Default constructor required by {@link java.util.ServiceLoader}
      */
     public Elf4jLoggerFinder() {
-        this(new NativeLoggerFactory(System.class));
+        this(new NativeLoggerFactory(SERVICE_ACCESS_CLASS));
     }
 
     Elf4jLoggerFinder(NativeLoggerFactory nativeLoggerFactory) {
