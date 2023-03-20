@@ -31,7 +31,7 @@ public class Elf4jLogger implements System.Logger {
             case OFF:
                 return elf4j.Level.OFF;
             default:
-                throw new UnsupportedOperationException("Unexpected Java 9 Platform level: " + level);
+                throw new IllegalArgumentException("Unexpected level: " + level);
         }
     }
 
