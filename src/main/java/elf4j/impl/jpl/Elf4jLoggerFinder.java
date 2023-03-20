@@ -6,14 +6,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Elf4jLoggerFinder extends System.LoggerFinder {
-    private final NativeLoggerFactory nativeLoggerFactory = new NativeLoggerFactory(System.class);
+    private final NativeLoggerFactory nativeLoggerFactory;
     private final Map<String, Elf4jLogger> elf4jLoggers = new HashMap<>();
 
     /**
      * Default constructor required by {@link java.util.ServiceLoader}
      */
     public Elf4jLoggerFinder() {
-        super();
+        this(new NativeLoggerFactory(System.class));
+    }
+
+    Elf4jLoggerFinder(NativeLoggerFactory nativeLoggerFactory) {
+        this.nativeLoggerFactory = nativeLoggerFactory;
     }
 
     @Override
