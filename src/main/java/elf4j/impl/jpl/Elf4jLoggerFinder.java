@@ -5,6 +5,9 @@ import elf4j.impl.core.NativeLoggerFactory;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *
+ */
 public class Elf4jLoggerFinder extends System.LoggerFinder {
     private final NativeLoggerFactory nativeLoggerFactory;
     private final Map<String, Elf4jLogger> elf4jLoggers = new HashMap<>();
