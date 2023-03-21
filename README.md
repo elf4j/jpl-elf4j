@@ -1,10 +1,12 @@
 # jpl-elf4j
 
-An adapter to use a [native ELF4J](https://github.com/elf4j/elf4j-impl-core) implementation as the runtime log engine for the Java 9 Platform Logging (System.Logger) API
+An adapter to use a [native ELF4J](https://github.com/elf4j/elf4j-impl-core) implementation as the runtime log engine
+for the Java 9 Platform Logging (System.Logger) API
 
 ## User Story
 
-As an application developer using the Java Platform Logging (JPL) API, I want to opt to use [elf4j-impl-core](https://github.com/elf4j/elf4j-impl-core) as the runtime logging engine.
+As an application developer using the Java Platform Logging (JPL) API introduced since Java 9, I want to opt to
+use [elf4j-impl-core](https://github.com/elf4j/elf4j-impl-core) as the runtime logging engine.
 
 ## Prerequisite
 
