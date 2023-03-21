@@ -1,6 +1,6 @@
-package elf4j.impl.jpl;
+package elf4j.engine.jpl;
 
-import elf4j.impl.core.NativeLoggerFactory;
+import elf4j.engine.NativeLoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,6 +1,6 @@
-package elf4j.impl.jpl;
+package elf4j.engine.jpl;
 
-import elf4j.impl.core.NativeLogger;
+import elf4j.engine.NativeLogger;
 import lombok.Value;
 
 import java.text.MessageFormat;
