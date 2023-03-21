@@ -1,12 +1,12 @@
 # jpl-elf4j
 
-An adapter to use [elf4j-engine](https://github.com/elf4j/elf4j-engine) as the runtime log engine for the Java 9
-Platform Logging (System.Logger) API
+An adapter to use [elf4j-engine](https://github.com/elf4j/elf4j-engine) as the runtime logging _service provider_ of the
+Java 9 Platform Logging (System.Logger) API
 
 ## User Story
 
 As an application developer using the Java Platform Logging (JPL) API introduced since Java 9, I want to opt to
-use [elf4j-engine](https://github.com/elf4j/elf4j-engine) as the runtime log engine.
+use [elf4j-engine](https://github.com/elf4j/elf4j-engine) as the runtime logging _service provider_.
 
 ## Prerequisite
 
@@ -28,4 +28,4 @@ Code against the Java 9 System.Logger API. Install this as a runtime-scope depen
 ...
 ```
 
-The usual elf4j-engine [configuration](https://github.com/elf4j/elf4j-impl#configuration) applies.
+The usual elf4j-engine [configuration](https://github.com/elf4j/elf4j-provider#configuration) applies.
