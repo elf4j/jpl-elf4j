@@ -4,14 +4,16 @@ import elf4j.impl.core.NativeLogger;
 import lombok.Value;
 
 import java.text.MessageFormat;
+import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.function.Supplier;
 
 /**
  *
  */
 @Value
 public class Elf4jLogger implements System.Logger {
-    private static final Class<?> SERVICE_INTERFACE_CLASS = System.Logger.class;
+    private static final Class<?> SERVICE_INTERFACE_CLASS = Elf4jLogger.class;
     String name;
     NativeLogger nativeLogger;
 
@@ -46,24 +48,58 @@ public class Elf4jLogger implements System.Logger {
     }
 
     @Override
+    public void log(Level level, String msg) {
+        service(level, null, null, msg);
+    }
+
+    @Override
+    public void log(Level level, Supplier<String> msgSupplier) {
+        service(level, null, null, Objects.requireNonNull(msgSupplier).get());
+    }
+
+    @Override
+    public void log(Level level, Object obj) {
+        service(level, null, null, Objects.toString(Objects.requireNonNull(obj)));
+    }
+
+    @Override
+    public void log(Level level, String msg, Throwable thrown) {
+        service(level, null, thrown, msg);
+    }
+
+    @Override
+    public void log(Level level, Supplier<String> msgSupplier, Throwable thrown) {
+        service(level, null, thrown, Objects.requireNonNull(msgSupplier).get());
+    }
+
+    @Override
+    public void log(Level level, String format, Object... params) {
+        service(level, null, null, format, params);
+    }
+
+    @Override
     public void log(Level level, ResourceBundle bundle, String msg, Throwable thrown) {
-        if (!isLoggable(level)) {
-            return;
-        }
-        NativeLogger atLevel = this.nativeLogger.atLevel(translate(level));
-        atLevel.getLogService()
-                .log(atLevel, SERVICE_INTERFACE_CLASS, thrown, bundle == null ? msg : bundle.getString(msg), null);
+        service(level, bundle, thrown, msg);
     }
 
     @Override
     public void log(Level level, ResourceBundle bundle, String format, Object... params) {
-        if (!isLoggable(level)) {
+        service(level, bundle, null, format, params);
+    }
+
+    private void service(Level level, ResourceBundle bundle, Throwable thrown, String message, Object... params) {
+        NativeLogger delegateLogger = nativeLogger.atLevel(translate(level));
+        if (!delegateLogger.isEnabled()) {
             return;
         }
-        String bundledFormat = bundle == null ? format : bundle.getString(format);
-        MessageFormat bundledMessageFormat = bundle == null ? new MessageFormat(bundledFormat) :
-                new MessageFormat(bundledFormat, bundle.getLocale());
-        NativeLogger atLevel = this.nativeLogger.atLevel(translate(level));
-        atLevel.getLogService().log(atLevel, SERVICE_INTERFACE_CLASS, null, bundledMessageFormat.format(params), null);
+        String format = bundle == null ? message : bundle.getString(message);
+        if (params == null || params.length == 0) {
+            delegateLogger.getLogService().log(delegateLogger, SERVICE_INTERFACE_CLASS, thrown, format, null);
+            return;
+        }
+        MessageFormat messageFormat =
+                bundle == null ? new MessageFormat(format) : new MessageFormat(format, bundle.getLocale());
+        delegateLogger.getLogService()
+                .log(delegateLogger, SERVICE_INTERFACE_CLASS, thrown, messageFormat.format(params), null);
     }
 }
