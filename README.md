@@ -14,7 +14,7 @@ Java 9 or better
 
 ## Get it...
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.elf4j/jpl-elf4j.svg?label=Maven%20Central)](https://central.sonatype.com/search?smo=true&q=pkg%253Amaven%252Fio.github.elf4j%252Fjpl-elf4j)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.elf4j/jpl-elf4j.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.elf4j%22%20AND%20a:%22jpl-elf4j%22)
 
 Code against the Java 9 System.Logger API. Install this as a runtime-scope dependency e.g. with Maven:
 
