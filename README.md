@@ -12,11 +12,13 @@ use [elf4j-engine](https://github.com/elf4j/elf4j-engine) as the runtime logging
 
 Java 9 or better
 
-## Get it...
+## Get It...
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.elf4j/jpl-elf4j.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.elf4j%22%20AND%20a:%22jpl-elf4j%22)
 
-Code against the Java 9 System.Logger API. Install this as a runtime-scope dependency e.g. with Maven:
+## User It...
+
+Code against the Java 9 System.Logger API, and install this as a runtime-scope dependency e.g. with Maven:
 
 ```html
 ...
