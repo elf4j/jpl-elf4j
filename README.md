@@ -1,12 +1,12 @@
 # jpl-elf4j
 
-An adapter to use [elf4j-engine](https://github.com/elf4j/elf4j-engine) as the runtime logging _service provider_ of the
+An adapter to use [elf4j-engine](https://github.com/elf4j/elf4j-engine) as the runtime log _service provider_ of the
 Java 9 Platform Logging (System.Logger) API
 
 ## User Story
 
 As an application developer using the Java Platform Logging (JPL) API introduced since Java 9, I want to opt to
-use [elf4j-engine](https://github.com/elf4j/elf4j-engine) as the runtime logging _service provider_.
+use [elf4j-engine](https://github.com/elf4j/elf4j-engine) as the runtime log _service provider_.
 
 ## Prerequisite
 
