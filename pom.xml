@@ -31,7 +31,7 @@
 
     <groupId>io.github.elf4j</groupId>
     <artifactId>jpl-elf4j</artifactId>
-    <version>4.0.0</version>
+    <version>4.0.1</version>
     <packaging>jar</packaging>
     <name>jpl-elf4j</name>
     <description>Native logging service provider implementation of ELF4J (Easy Logging Facade For Java)
@@ -140,7 +140,7 @@
             <plugin>
                 <groupId>io.github.q3769</groupId>
                 <artifactId>semver-maven-plugin</artifactId>
-                <version>20221011.1.0</version>
+                <version>20221011.20230506.0</version>
             </plugin>
             <plugin>
                 <groupId>org.projectlombok</groupId>
