@@ -1,9 +1,11 @@
 package elf4j.engine.jpl;
 
+import elf4j.engine.service.util.MoreAwaitility;
 import lombok.NonNull;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
 import java.util.Enumeration;
 import java.util.ResourceBundle;
 
@@ -11,8 +13,8 @@ class Elf4jLoggerTest {
     System.Logger logger = System.getLogger(Elf4jLoggerTest.class.getName());
 
     @AfterEach
-    void afterEach() throws InterruptedException {
-        Thread.sleep(200);
+    void afterEach() {
+        MoreAwaitility.suspend(Duration.ofMillis(200));
     }
 
     @Test
