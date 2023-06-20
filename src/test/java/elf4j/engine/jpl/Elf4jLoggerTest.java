@@ -1,6 +1,6 @@
 package elf4j.engine.jpl;
 
-import elf4j.engine.service.util.MoreAwaitility;
+import coco4j.MoreAwaitilities;
 import lombok.NonNull;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,7 @@ class Elf4jLoggerTest {
 
     @AfterEach
     void afterEach() {
-        MoreAwaitility.suspend(Duration.ofMillis(200));
+        MoreAwaitilities.suspend(Duration.ofMillis(200));
     }
 
     @Test
