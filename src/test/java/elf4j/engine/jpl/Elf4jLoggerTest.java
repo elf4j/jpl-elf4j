@@ -14,7 +14,7 @@ class Elf4jLoggerTest {
 
     @AfterEach
     void afterEach() {
-        MoreAwaitilities.suspend(Duration.ofMillis(200));
+        MoreAwaitilities.sleepInterruptibly(Duration.ofMillis(200));
     }
 
     @Test
