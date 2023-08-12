@@ -1,21 +1,13 @@
 package elf4j.engine.jpl;
 
-import coco4j.MoreAwaitilities;
 import lombok.NonNull;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.Duration;
 import java.util.Enumeration;
 import java.util.ResourceBundle;
 
 class Elf4jLoggerTest {
     System.Logger logger = System.getLogger(Elf4jLoggerTest.class.getName());
-
-    @AfterEach
-    void afterEach() {
-        MoreAwaitilities.sleepInterruptibly(Duration.ofMillis(200));
-    }
 
     @Test
     void logs() {
