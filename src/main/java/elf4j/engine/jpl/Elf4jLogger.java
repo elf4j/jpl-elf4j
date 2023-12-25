@@ -1,12 +1,11 @@
 package elf4j.engine.jpl;
 
 import elf4j.engine.NativeLogger;
-import lombok.Value;
-
 import java.text.MessageFormat;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
+import lombok.Value;
 
 /**
  *
@@ -99,7 +98,8 @@ public class Elf4jLogger implements System.Logger {
         }
         MessageFormat messageFormat =
                 bundle == null ? new MessageFormat(format) : new MessageFormat(format, bundle.getLocale());
-        delegateLogger.getLogService()
+        delegateLogger
+                .getLogService()
                 .log(delegateLogger, SERVICE_INTERFACE_CLASS, thrown, messageFormat.format(params), null);
     }
 }
