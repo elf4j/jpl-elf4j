@@ -7,9 +7,7 @@ import java.util.ResourceBundle;
 import java.util.function.Supplier;
 import lombok.Value;
 
-/**
- *
- */
+/** */
 @Value
 public class Elf4jLogger implements System.Logger {
     private static final Class<?> SERVICE_INTERFACE_CLASS = Elf4jLogger.class;
